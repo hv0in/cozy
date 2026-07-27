@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🍑 코지 기니피그</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- 시작 화면 -->
+
+<div id="start">
+
+<h1>🍑 코지 기니피그</h1>
+
+<p>나만의 작은 친구를 키워보세요 🐹</p>
+
+<img src="Pig.png">
+
+
+<br><br>
+
+<input id="name" placeholder="기니피그 이름">
+
+
+<button onclick="startGame()">
+만나러 가기 🐹
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- 게임 화면 -->
+
+<div id="game" style="display:none;">
+
+
+<h1 id="pigTitle"></h1>
+
+<div id="pigBubble"></div>
+
+<img src="Pig.png" id="bigPig" onclick="pigSpeak()">
+
+
+
+<button id="shopButton" onclick="openShop()">
+🛒 상점
+</button>
+
+
+<button id="workButton" onclick="openWork()">
+💰 돈 벌러가기
+</button>
+
+
+<button id="closetButton" onclick="openCloset()">
+👕 옷장
+</button>
+
+
+<div id="coinBox">
+💰 <span id="coin">0</span>
+</div>
+
+
+
+<div id="itemBox">
+
+🥕 사료 : <span id="foodCount">0</span><br>
+
+🧸 장난감 : <span id="toyCount">0</span>
+
+</div>
+
+
+
+<p>
+❤️ 행복도 <span id="happy">50</span>
+</p>
+
+
+<p>
+🍎 배고픔 <span id="hunger">50</span>
+</p>
+
+
+
+<button onclick="feedPig()">
+🥕 밥 주기
+</button>
+
+
+<button onclick="useToy()">
+🎾 놀아주기
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- 상점 화면 -->
+
+<div id="shopScreen" style="display:none;">
+
+
+<h1>🛒 상점</h1>
+
+
+<p>
+💰 <span id="shopCoin">0</span>
+</p>
+
+
+
+<button onclick="buyFood()">
+🍎 사료 구매 (50💰)
+</button>
+
+
+<button onclick="buyToy()">
+🧸 장난감 구매 (100💰)
+</button>
+
+
+<br><br>
+
+
+<button onclick="backRoom()">
+🏠 방으로 돌아가기
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- 돈 벌기 화면 -->
+
+<div id="workScreen" style="display:none;">
+
+
+<h1>💰 돈 벌기</h1>
+
+
+<p>무엇을 할까요? 🐹</p>
+
+
+
+<button onclick="openPoopGame()">
+💩 똥 치우기
+</button>
+
+
+<button onclick="openCarrotGame()">
+🥕 당근 캐기
+</button>
+
+
+
+<br><br>
+
+
+<button onclick="backRoom()">
+🏠 방으로 돌아가기
+</button>
+
+
+</div>
+
+<!-- 🥕 당근밭 화면 -->
+
+<div id="carrotScreen" style="display:none;">
+
+
+<div id="carrotCoinBox">
+
+💰 <span id="carrotCoin">0</span>
+
+</div>
+
+
+
+<h1>🥕 당근밭</h1>
+
+
+<p id="workGuide">
+🥕 당근을 눌러 캐보세요!
+</p>
+
+
+
+<div id="carrotField"></div>
+
+
+
+<button onclick="backToWork()">
+
+⬅ 돈 벌기 화면으로
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- 💩 똥밭 화면 -->
+
+<div id="poopScreen" style="display:none;">
+
+
+<div id="carrotCoinBox">
+
+💰 <span id="poopCoin">0</span>
+
+</div>
+
+
+
+<h1>💩 똥밭</h1>
+
+
+<p id="poopGuide">
+💩 똥을 2-3번 눌러 치워보세요!
+</p>
+
+
+
+<div id="poopField"></div>
+
+
+
+<button onclick="backToWorkPoop()">
+
+⬅ 돈 벌기 화면으로
+
+</button>
+
+
+</div>
+
+
+<!-- 👕 옷장 화면 -->
+
+<div id="closetScreen" style="display:none;">
+
+<h1>👕 옷장</h1>
+
+<p>입힐 옷을 골라보세요 🐹</p>
+
+
+<div id="skinBox">
+
+<img src="Pig.png" onclick="changeSkin('Pig.png', this)" class="skin">
+
+<img src="Pig2.png" onclick="changeSkin('Pig2.png', this)" class="skin">
+
+<img src="Pig3.png" onclick="changeSkin('Pig3.png', this)" class="skin">
+
+</div>
+
+<button onclick="backClosetRoom()">
+🏠 방으로 돌아가기
+</button>
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+  </html>
