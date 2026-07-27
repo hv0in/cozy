@@ -1,0 +1,765 @@
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: "Jua", sans-serif;
+
+    background-color: #ffe8d6;
+
+    text-align: center;
+
+    color: #6b4b3e;
+
+}
+
+
+/* 게임 시작 후 배경 */
+body.gameMode {
+
+    background-image: url("room1.png");
+
+    background-size: contain;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+/* 가로 화면 */
+@media screen and (orientation: landscape) {
+
+    body.gameMode {
+
+        background-image: url("room2.jpg");
+
+    }
+
+}
+
+
+
+/* 시작 화면 */
+#start {
+
+    padding-top: 80px;
+
+}
+
+
+
+/* 게임 화면 */
+#game {
+
+    padding-top: 40px;
+
+}
+
+
+
+/* 기본 기니피그 크기 */
+img {
+
+    width: 220px;
+
+    border-radius: 25px;
+
+}
+
+
+
+/* 게임 시작 후 기니피그 크기 */
+#game img {
+
+    width: 400px;
+
+}
+
+
+
+/* 제목 */
+h1 {
+
+    font-size: 40px;
+
+    text-shadow: 1px 1px 5px #c9a58b;
+
+}
+
+
+h2 {
+
+    font-size: 36px;
+
+    text-shadow: 1px 1px 5px #c9a58b;
+
+}
+
+
+
+/* 설명 */
+p {
+
+    font-size: 22px;
+
+    text-shadow: 1px 1px 5px #c9a58b;
+
+}
+
+
+
+/* 입력창 */
+input {
+
+    width: 220px;
+
+    padding: 14px;
+
+    margin: 10px;
+
+    border-radius: 20px;
+
+    border: 2px solid #e8b7a0;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+    text-align: center;
+
+}
+
+
+
+/* 버튼 */
+button {
+
+    padding: 15px 28px;
+
+    margin: 10px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background-color: #f4bfa8;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+
+button:active {
+
+    transform: scale(0.95);
+
+}
+
+
+
+/* 💰 코인창 */
+#coinBox {
+
+    position: fixed;
+
+    top: 70px;
+
+    right: 110px;
+
+    background: rgba(255,255,255,0.85);
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    font-size: 22px;
+
+    font-family: "Jua", sans-serif;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+    z-index: 999;
+
+}
+
+
+
+/* 🛒 상점 버튼 */
+#shopButton {
+
+    position: fixed;
+
+    right: 110px;
+
+    top: 140px;
+
+    z-index: 999;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+
+
+/* 🛒 상점 화면 */
+#shopScreen {
+
+    text-align: center;
+
+    padding-top: 80px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+
+
+/* 상점 안 버튼 */
+#shopScreen button {
+
+    display: block;
+
+    margin: 15px auto;
+
+    padding: 15px 30px;
+
+    border-radius: 25px;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+
+
+/* 가로/세로 똑같이 유지 */
+@media screen and (orientation: landscape) {
+
+    #coinBox {
+
+        top: 70px;
+
+        right: 110px;
+
+    }
+
+
+    #shopButton {
+
+        right: 100px;
+
+        top: 140px;
+
+    }
+
+}
+
+
+@media screen and (orientation: portrait) {
+
+    #coinBox {
+
+        top: 70px;
+
+        right: 110px;
+
+    }
+
+
+    #shopButton {
+
+        right: 100px;
+
+        top: 140px;
+
+    }
+
+}
+
+#workButton {
+
+    position: fixed;
+
+    right: 100px;
+
+    top: 210px;
+
+    z-index: 999;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+/* 기니피그 상태 나쁠 때 회색 */
+#game img.sadPig {
+
+    filter: grayscale(100%);
+}
+
+#game img {
+    
+    width: 400px;
+    
+    transition: 0.3s;
+    
+}
+
+/* 🥕 당근밭 화면 */
+#carrotScreen {
+
+    display: none;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image: url("cwork2.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+/* 가로 화면 */
+@media screen and (orientation: landscape) {
+
+    #carrotScreen {
+
+        background-image: url("cwork1.png");
+
+    }
+
+}
+
+
+/* 당근 생성 구역 */
+#carrotField {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+/* 🥕 당근 */
+.carrot {
+
+    position: absolute;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition: transform 0.15s;
+
+}
+
+
+.carrot:active {
+
+    transform: scale(1.2);
+
+}
+
+
+/* 돌아가기 버튼 */
+#carrotScreen button {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+.moneyText{
+
+    position:absolute;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:white;
+
+    text-shadow:2px 2px 5px black;
+
+    z-index:99999;
+
+    pointer-events:none;
+
+}
+
+/* 🥕 당근밭 보유 코인 */
+
+#carrotCoinBox{
+
+    position:fixed;
+
+    top:70px;
+
+    right:80px;
+
+    background:rgba(255,255,255,0.85);
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    font-size:22px;
+
+    font-family:"Jua", sans-serif;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+
+    z-index:9999;
+
+}
+
+
+/* 가로 화면 */
+@media screen and (orientation:landscape){
+
+    #carrotCoinBox{
+
+        top:70px;
+
+        right:110px;
+
+    }
+
+}
+
+/* 🥕 사료 / 🧸 장난감 개수 */
+
+#itemBox{
+
+    position:fixed;
+
+    left:110px;
+
+    top:70px;
+
+    background:rgba(255,255,255,0.85);
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    font-size:22px;
+
+    font-family:"Jua", sans-serif;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+
+    z-index:999;
+
+    text-align:center;
+
+}
+
+
+/* 세로 화면 */
+
+@media screen and (orientation:portrait){
+
+    #itemBox{
+
+        left:110px;
+
+        top:70px;
+
+    }
+
+}
+
+
+
+/* 가로 화면 */
+
+@media screen and (orientation:landscape){
+
+    #itemBox{
+
+        left:110px;
+
+        top:70px;
+
+    }
+
+}
+
+/* 💩 똥밭 화면 */
+
+#poopScreen {
+
+    display: none;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image: url("cwork2.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+/* 가로 화면 */
+
+@media screen and (orientation: landscape){
+
+    #poopScreen {
+
+        background-image: url("cwork1.png");
+
+    }
+
+}
+
+
+/* 💩 똥 생성 구역 */
+
+#poopField {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+}
+
+
+
+/* 💩 똥밭 돌아가기 버튼 */
+
+#poopScreen button {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    font-size: 18px;
+
+    font-family: "Jua", sans-serif;
+
+}
+
+#pigBubble{
+
+    display:none;
+
+    position:absolute;
+
+    top:135px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:white;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-family:"Jua", sans-serif;
+
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+
+    z-index:1000;
+
+    white-space:nowrap;
+
+}
+
+
+#pigBubble::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-7px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-width:7px 7px 0;
+
+    border-style:solid;
+
+    border-color:white transparent transparent transparent;
+
+}
+
+/* 👕 옷장 화면 */
+
+#closetScreen{
+
+    display:none;
+
+    width:100vw;
+
+    height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background-image:url("room3.png");
+
+    background-size:contain;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+
+/* 옷장 돌아가기 버튼 */
+
+#closetScreen button{
+
+    position:absolute;
+
+    top:70px;
+
+    left:90px;
+
+    padding:12px 20px;
+
+    border-radius:20px;
+
+    font-size:18px;
+
+}
+
+#closetButton{
+
+    position:fixed;
+
+    right:100px;
+
+    top:280px;
+
+    z-index:999;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    font-size:18px;
+
+    font-family:"Jua", sans-serif;
+
+}
+
+/* 👕 옷장 스킨 선택 */
+
+#skinBox{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:80px;
+
+}
+
+
+.skin{
+
+    width:320px;
+
+    cursor:pointer;
+
+    opacity:1;
+
+    transition:0.2s;
+
+}
+
+
+.skin:active{
+
+    transform:scale(1.1);
+
+  }
